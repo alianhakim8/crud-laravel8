@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GajiPegawaiController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PegawaiController;
@@ -29,3 +30,14 @@ Route::get('/pegawai/edit/{id}', [PegawaiController::class, 'edit']);
 Route::post('/pegawai/update', [PegawaiController::class, 'update']);
 
 Route::get('/pegawai/hapus/{id}', [PegawaiController::class, 'hapus']);
+
+
+// Route Data Gaji Pegawai
+Route::get('/pegawai/gaji', [GajiPegawaiController::class, 'index']);
+Route::get('/pegawai/gaji/tambah', [GajiPegawaiController::class . 'tambah']);
+
+Route::post('/pegawai/gaji/store', [GajiPegawaiController::class, 'store']);
+Route::get('/pegawai/gaji/edit/{id}', [GajiPegawaiController::class, 'edit']);
+Route::post('/pegawai/gaji/update', [GajiPegawaiController::class, 'update']);
+
+Route::get('pegawai/hapus/{id}', [GajiPegawaiController::class, 'hapus']);

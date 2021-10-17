@@ -17,7 +17,7 @@ class PegawaiController extends Controller
         return view('pegawai/index', ['pegawai' => $pegawai]);
     }
 
-    function tambah()
+    public function tambah()
     {
         // memanggil view tambah
         return view('pegawai/tambah');
