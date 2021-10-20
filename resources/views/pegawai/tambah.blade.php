@@ -14,7 +14,7 @@
 </head>
 
 <body class="mt-5 mb-5 container">
-    <h3>Data Pegawai</h3>
+    <h3>Tambah Data Pegawai</h3>
     <a href="/pegawai" class="nav-link">Kembali</a>
 
 
