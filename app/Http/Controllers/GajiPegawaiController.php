@@ -12,7 +12,7 @@ class GajiPegawaiController extends Controller
     {
         $gaji = DB::table('gaji_pegawai')->get();
 
-        return view('pegawai/gaji/index', ['pegawai' => $gaji]);
+        return view('pegawai/gaji/index', ['gaji' => $gaji]);
     }
 
     public function tambah()
@@ -24,7 +24,7 @@ class GajiPegawaiController extends Controller
     {
         DB::table('gaji_pegawai')->insert([
             'nama_pegawai' => $request->nama,
-            'nominal_gaji' => $request->nominal
+            'nominal' => $request->nominal
         ]);
 
         return redirect('/pegawai/gaji');
@@ -32,7 +32,7 @@ class GajiPegawaiController extends Controller
 
     public function edit($id)
     {
-        $gaji = DB::table('gaji_pegawai')->where('id_gaji', $id)->get();
+        $gaji = DB::table('gaji_pegawai')->where('id', $id)->get();
 
         return view('pegawai/gaji/edit', [
             'gaji' => $gaji
@@ -41,9 +41,9 @@ class GajiPegawaiController extends Controller
 
     public function update(Request $request)
     {
-        DB::table('gaji_pegawai')->where('id_gaji', $request->id)->update([
-            'nama_pegawai' => $request->nama,
-            'nominal_gaji' => $request->nominal
+        DB::table('gaji_pegawai')->where('id', $request->id)->update([
+            'nama_pegawai' => $request->nama_pegawai,
+            'nominal' => $request->nominal
         ]);
 
         return redirect('/pegawai/gaji');
@@ -51,7 +51,7 @@ class GajiPegawaiController extends Controller
 
     public function hapus($id)
     {
-        DB::table('gaji_pegawai')->where('id_gaji', $id)->delete();
+        DB::table('gaji_pegawai')->where('id', $id)->delete();
 
         return redirect('/pegawai/gaji');
     }
